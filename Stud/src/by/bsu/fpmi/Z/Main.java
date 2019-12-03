@@ -3,6 +3,7 @@ package by.bsu.fpmi.Z;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.InputMismatchException;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 import by.bsu.fpmi.Z.SpecialContainer.OddElementException;
@@ -64,7 +66,9 @@ public class Main {
 	}
 	
 	public static void printWithLambdaAndStreamAPI(SpecialContainer<Ancestor> sContainer3,AnotherProperty property) {
-		System.out.println(sContainer3.stream().filter((p)->p.getLastProperty().equals(property)).collect(Collectors.toList()));
+		//System.out.println("sum="+sContainer3.stream().flatMapToDouble((p)->DoubleStream.of(p.getThirdProperty())).sum());
+		System.out.println("sum="+sContainer3.stream().filter((p)->p.getLastProperty().equals(property)).collect(Collectors.toList()).stream().flatMapToDouble((p)->DoubleStream.of(p.getThirdProperty())).sum());
+		
 	}
 	
 	public static void part1() {
