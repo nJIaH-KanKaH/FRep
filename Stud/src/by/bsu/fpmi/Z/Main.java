@@ -68,7 +68,6 @@ public class Main {
 	public static void printWithLambdaAndStreamAPI(SpecialContainer<Ancestor> sContainer3,AnotherProperty property) {
 		//System.out.println("sum="+sContainer3.stream().flatMapToDouble((p)->DoubleStream.of(p.getThirdProperty())).sum());
 		System.out.println("sum="+sContainer3.stream().filter((p)->p.getLastProperty().equals(property)).collect(Collectors.toList()).stream().flatMapToDouble((p)->DoubleStream.of(p.getThirdProperty())).sum());
-		
 	}
 	
 	public static void part1() {
@@ -156,6 +155,7 @@ public class Main {
 		System.out.println("sContainer3:");
 		System.out.println(sContainer3);
 		printWithLambdaAndStreamAPI(sContainer3, AnotherProperty.EMPTY);
+		System.out.println(sContainer1.countIf(new FirstInheritor(1, "one", 1.0d, AnotherProperty.PROPERTY_1, true)));
 	}
 
 	public static void part3() {

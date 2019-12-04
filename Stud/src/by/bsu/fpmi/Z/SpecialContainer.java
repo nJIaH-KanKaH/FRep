@@ -47,6 +47,18 @@ public class SpecialContainer<T extends Ancestor> extends ArrayList<T>{
 		return builder.toString();
 	}
 	
+	public int countIf(T obj) {
+		return UnaryPredicate.countIf(this, new UnaryPredicate<T>() {
+
+			@Override
+			public boolean test(T object) {
+				if(object.equals(obj))
+					return true; 
+				return false;
+			}
+		});
+	}
+	
 	public static class OddElementException extends Exception{
 		OddElementException(String message) {
 			super(message);

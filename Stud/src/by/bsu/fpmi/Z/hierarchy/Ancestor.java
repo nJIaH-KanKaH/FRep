@@ -1,5 +1,7 @@
 package by.bsu.fpmi.Z.hierarchy;
 
+import by.bsu.fpmi.Z.UnaryPredicate;
+
 public abstract class Ancestor {
 	private
 	int firstProperty; private
@@ -58,6 +60,8 @@ public abstract class Ancestor {
 	
 	public boolean equals(Ancestor i) {
 		return this.firstProperty-i.firstProperty==0 
-				&& this.secondProperty.equals(i.secondProperty);
+				&& this.secondProperty.equals(i.secondProperty) 
+				&& this.thirdProperty-i.thirdProperty==0 
+				&& this.lastProperty.equals(i.lastProperty);
 	}
 }
